@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#087cf0">
+  <meta name="description" content="いくつかの質問に答えるだけで、作りたいアプリの開発期間と最初のプロンプトが分かる無料診断。">
+  <title>アプリ開発かんたん診断</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="トップへ"><span class="brand-mark">A</span><span>APP診断</span></a>
+    <span class="header-note">無料・約3分</span>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="intro">
+      <div class="eyebrow">アイデアが、どこまで形になるか分かる</div>
+      <h1>あなたのアプリ、<br><span>何日で作れる？</span></h1>
+      <p class="hero-copy">質問に答えるだけで、開発期間・独学との時間差・必要な機能を診断。AIへそのまま渡せる「最初のプロンプト」まで作ります。</p>
+      <div class="benefits" aria-label="診断で分かること">
+        <div><b>01</b><span>完成までの目安</span></div>
+        <div><b>02</b><span>独学との時間差</span></div>
+        <div><b>03</b><span>最初のプロンプト</span></div>
+      </div>
+      <button class="primary-button" id="startButton">無料で診断する <span>→</span></button>
+      <p class="microcopy">登録不要／回答内容は送信されません</p>
+    </section>
+
+    <section class="diagnosis hidden" id="diagnosis" aria-live="polite">
+      <div class="progress-row">
+        <span id="stepLabel">質問 1 / 8</span><span id="progressPercent">13%</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+      <article class="question-card">
+        <p class="question-kicker" id="questionKicker"></p>
+        <h2 id="questionTitle"></h2>
+        <p class="question-help" id="questionHelp"></p>
+        <div class="options" id="options"></div>
+        <div class="nav-buttons">
+          <button class="back-button" id="backButton">← 戻る</button>
+          <button class="next-button" id="nextButton" disabled>次へ →</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="result hidden" id="result">
+      <div class="result-heading">
+        <p>診断結果</p>
+        <h2 id="resultName">あなたのアプリ</h2>
+        <span class="difficulty" id="difficulty"></span>
+      </div>
+
+      <div class="result-grid">
+        <article class="metric-card accent">
+          <p>GitHubサポートアプリを使う場合</p>
+          <strong id="supportDays"></strong>
+          <span id="supportHours"></span>
+        </article>
+        <article class="metric-card">
+          <p>1から独学する場合</p>
+          <strong id="soloDays"></strong>
+          <span id="soloHours"></span>
+        </article>
+      </div>
+
+      <article class="difference-card">
+        <div><span>短縮できる時間</span><strong id="savedHours"></strong></div>
+        <p id="resultSummary"></p>
+      </article>
+
+      <article class="detail-card">
+        <h3>想定される主な機能</h3>
+        <ul id="featureList"></ul>
+      </article>
+
+      <article class="prompt-card">
+        <div class="prompt-heading">
+          <div><p>AIへ最初に渡す</p><h3>アプリ作成プロンプト</h3></div>
+          <button id="copyButton">コピー</button>
+        </div>
+        <pre id="promptText"></pre>
+      </article>
+
+      <div class="result-actions">
+        <a class="primary-button link-button" href="https://easy-app-development-lp.benefit-navi.com/">完成までのサポートを見る <span>→</span></a>
+        <button class="retry-button" id="retryButton">もう一度診断する</button>
+      </div>
+      <p class="estimate-note">※表示時間は一般的なWebアプリを前提とした概算です。仕様、外部サービスの審査、データ移行量などにより変動します。</p>
+    </section>
+  </main>
+
+  <footer>© APP診断 / 税理士法人OKS</footer>
+  <script src="app.js"></script>
+</body>
+</html>
