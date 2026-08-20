@@ -1,7 +1,5 @@
-FROM python:3.12-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-EXPOSE 800000
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "app:app"]
+FROM nginx:1.27-alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY index.html styles.css app.js /usr/share/nginx/html/
+EXPOSE 8000
+HEALTHCHECK --interval=30s --timeout=3s CMD wget -q -O /dev/null http://127.0.0.1:8000/ || exit 1
